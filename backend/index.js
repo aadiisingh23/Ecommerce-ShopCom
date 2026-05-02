@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import userRouter from './routes/user.route.js';
+import ProductRouter from './routes/product.route.js';
 import connectDB from './config/db.js';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -19,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 connectDB();
 // Routes
 app.use('/api/auth',userRouter);
-// app.use('/api/products',userRouter);
+app.use('/api/products',ProductRouter);
 // app.use('/api/orders',userRouter);
 // app.use('/api/payment',userRouter);
 // app.use('/api/analytics',userRouter);
